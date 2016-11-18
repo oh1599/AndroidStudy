@@ -42,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
         showStrings.setText(arrayStr.toString() + " ");
     }
     public  boolean isStringInteger(String s) {
-        try {
+        try
+        {
             Integer.parseInt(s);
             return true;
         } catch (NumberFormatException e) {
