@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
     EditText editText;
     Intent intent;
 
+    Double latitude=0.0;
+    Double longitude=0.0;
+
     ArrayList<MyInfo> myInfo=new ArrayList<MyInfo>();
 
     GpsDB db = new GpsDB(this) ;
@@ -56,11 +59,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onLocationChanged(Location location) {
             //위치정보 리스트에 저장
-            myInfo.get(storeNum).latitude=location.getLatitude();
-            myInfo.get(storeNum).longitude=location.getLongitude();
-
-            String msg = "Latitude: " + myInfo.get(storeNum).latitude + "\nLongitude: " + myInfo.get(storeNum).longitude;
-            Log.i("GPSListener", msg);
+            latitude = location.getLatitude();
+            longitude = location.getLongitude();
         }
         @Override
         public void onStatusChanged(String provider, int status, Bundle extras) {
@@ -72,7 +72,8 @@ public class MainActivity extends AppCompatActivity {
         public void onProviderDisabled(String provider) {
         }
     }
-    private void startLocationService(){
+    private void startLocationService()
+    {
         LocationManager manager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
 
         GPSListener gpsListener = new GPSListener();
@@ -96,24 +97,20 @@ public class MainActivity extends AppCompatActivity {
     void resetData(View view) {
         sqLiteDatabase = db.getWritableDatabase() ;
         db.onUpgrade(sqLiteDatabase,1,2);
-        db.close();
+        sqLiteDatabase.close();
     }
 
     //저장 버튼 클릭 리스너
     public void storeData(View view)
     {
-        store=(Button)findViewById(R.id.sub);
         editText=(EditText)findViewById(R.id.write);
 
 
-        //Myinfo 클래스의 4가지 맴버에 값 저장.
-        startLocationService() ;//latitude,longitude 변수에 값 저장. //numSpinner값은 static이므로 따로 저장할 필요없다.
-        myInfo.get(storeNum).content=editText.getText().toString();  //content 변수에 값 저장.
+        startLocationService();
 
-        db.insert(myInfo.get(storeNum).latitude, myInfo.get(storeNum).longitude, numSpinner, myInfo.get(storeNum).content);
+        db.insert(latitude,longitude,numSpinner,editText.getText().toString());
+
         editText.setText("");
-        //저장횟수 증가
-        storeNum++;
     }
 
 

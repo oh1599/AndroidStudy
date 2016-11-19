@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class GpsDB extends SQLiteOpenHelper
 {
     public GpsDB(Context context) {
-        super(context,"MyLocation",null,1);
+        super(context,"LOGGER",null,1);
     }
 
     @Override
@@ -23,7 +23,7 @@ public class GpsDB extends SQLiteOpenHelper
         // 새로운 테이블을 생성한다.
         // create table 테이블명 (컬럼명 타입 옵션);
         //DB명령어 수행
-        String createTable="CREATE TABLE LOGGER( _id INTEGER PRIMARY KEY AUTOINCREMENT, latitude REAR, longitude REAR, type INTEGER, content  TEXT);";
+        String createTable="CREATE TABLE database (_id INTEGER PRIMARY KEY AUTOINCREMENT, latitude REAL , longitude REAL , type INTEGER ,  content TEXT);";
         db.execSQL(createTable);
     }
 
@@ -46,13 +46,13 @@ public class GpsDB extends SQLiteOpenHelper
             int type = cursor.getInt(cursor.getColumnIndex("type"));
             String content = cursor.getString(cursor.getColumnIndex("content"));
 
-            MyInfo locationSet = new MyInfo();
-            locationSet.latitude = latitude ;
-            locationSet.longitude = longitude ;
-            locationSet.type = type ;
-            locationSet.content = content ;
+            MyInfo myInfo1 = new MyInfo();
+            myInfo1.latitude = latitude ;
+            myInfo1.longitude = longitude ;
+            myInfo1.type = type ;
+            myInfo1.content = content ;
 
-            myInfo.add(locationSet) ;
+            myInfo.add(myInfo1) ;
         }
         cursor.close();
         db.close();
