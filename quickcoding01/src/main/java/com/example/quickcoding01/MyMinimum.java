@@ -1,19 +1,17 @@
 package com.example.quickcoding01;
 
 public class MyMinimum  extends MyValues{
+    int getResult()
+    {
+        result=value[0];
+        for(int i=0;i<value.length;i++)
+        {
 
-    int getResult () {
-
-        int ans = value[0] ;
-
-        for (int i = 0 ; i < value.length ; i++) {
-
-            if (ans > value[i]) {
-
-                ans = value[i];
+            if(result>value[i])
+            {
+                result=value[i];
             }
         }
-
-        return ans ;
+        return result;
     }
 }

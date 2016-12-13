@@ -3,18 +3,14 @@ package com.example.quickcoding01;
 
 
 public class MyAverage extends MyValues {
-
-    int getResult () {
-
-        ans = 0 ;
-
-        for (int tmp : value) {
-
-            ans += tmp ;
+    int getResult()
+    {
+        for(int i=0;i<value.length;i++)
+        {
+            result+=value[i];
         }
 
-        ans /= value.length ;
-
-        return ans ;
+        result/=value.length;
+        return result;
     }
 }
