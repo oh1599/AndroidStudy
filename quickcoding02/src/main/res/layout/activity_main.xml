@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="20dp"
-        android:text="Your Number Is 500 ?"
+        android:text="당신의 숫자는 1000입니까?"
         android:id="@+id/TextNum"/>
 
     <LinearLayout
@@ -49,21 +49,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="BIGGER"
-            android:id="@+id/BtnBig"
-            android:onClick="onClick"/>
+            android:id="@+id/BtnBig" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SMALLER"
-            android:id="@+id/BtnSmall"
-            android:onClick="onClick"/>
+            android:id="@+id/BtnSmall" />
     </LinearLayout>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="BINGO"
-        android:id="@+id/BtnBingo"
-        android:onClick="onClick"/>
+        android:id="@+id/BtnBingo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/result"/>
 </LinearLayout>

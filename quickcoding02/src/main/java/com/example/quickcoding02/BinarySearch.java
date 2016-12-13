@@ -4,28 +4,34 @@ package com.example.quickcoding02;
  * Created by Oh on 2016-11-14.
  */
 
-public class BinarySearch {
-
-    int low = 0, high = 500 ;
+public class BinarySearch
+{
+    int low = 0;
+    int high = 1000 ;
     int mid = 500 ;
 
-    void getResult (int target) {
+    int getMid ()
+    {
+        return mid ;
+    }
 
-        if (target > mid) {
+    void setMid ()
+    {
+        mid = (low + high) / 2;
+    }
+
+    void getResult (int target)
+    {
+        if (target > mid)
+        {
             low = mid ;
             setMid() ;
         }
-        else if (target < mid) {
+        else if (target < mid)
+        {
             high = mid ;
             setMid() ;
         }
     }
 
-    int getMid () {
-        return mid ;
-    }
-
-    void setMid () {
-        mid = (low + high) / 2;
-    }
 }
