@@ -10,51 +10,43 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="숫자 혹은 문자열을 입력해주세요." />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
         <EditText
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text=""
-            android:id="@+id/get"/>
-
+            android:layout_height="wrap_content"
+            android:id="@+id/input"
+            android:layout_weight="1"/>
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="숫자 혹은 문자 입력"
-            android:onClick="onClick01"/>
+            android:layout_height="wrap_content"
+            android:text="send"
+            android:layout_weight="1"
+            android:id="@+id/send"/>
     </LinearLayout>
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="입력이 완료되면 클릭"
-        android:onClick="onClick02"/>
-
+        android:text="결과 보기"
+        android:id="@+id/result"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="입력된 문자열: "/>
-
+        android:text="입력된 문자열"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=" "
-        android:id="@+id/showStrings"/>
-
+        android:id="@+id/string"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="입력된 숫자:"/>
-
+        android:text="입력된 숫자"
+        />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=" "
-        android:id="@+id/showInteger"/>
+        android:id="@+id/number"/>
 
 </LinearLayout>
